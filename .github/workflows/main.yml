@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNITY TEA</title>
+
+<style>
+body {
+    margin:0;
+    font-family: Arial;
+    background:#0f2a1d;
+    color:white;
+}
+header {
+    background:#071a12;
+    padding:15px;
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    color:#f5c542;
+}
+.hero {
+    text-align:center;
+    padding:40px 20px;
+}
+.hero h1 {
+    font-size:36px;
+}
+.btn {
+    background:#f5c542;
+    color:black;
+    padding:12px 20px;
+    border:none;
+    margin:10px;
+    cursor:pointer;
+    font-weight:bold;
+}
+.products {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+.card {
+    background:#163d2a;
+    margin:10px;
+    padding:15px;
+    width:220px;
+    text-align:center;
+    border-radius:10px;
+}
+.card img {
+    width:100%;
+    border-radius:10px;
+}
+footer {
+    text-align:center;
+    padding:20px;
+    background:#071a12;
+    margin-top:20px;
+}
+input, textarea {
+    width:90%;
+    padding:10px;
+    margin:5px;
+}
+</style>
+</head>
+
+<body>
+
+<header>UNITY TEA ☕</header>
+
+<div class="hero">
+    <h1>Har Sip Mein Kadak Swad</h1>
+    <button class="btn" onclick="scrollToProducts()">Shop Now</button>
+</div>
+
+<h2 style="text-align:center;">Hamare Products</h2>
+
+<div class="products" id="products">
+
+<div class="card">
+<img src="https://i.ibb.co/4wgVjgnf/IMG-2175.jpg">
+<h3>Regular Tea</h3>
+<p>₹60 / 250g</p>
+<button class="btn" onclick="order('Regular Tea')">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://i.ibb.co/SDJg9n54/IMG-2176.jpg">
+<h3>Premium Tea</h3>
+<p>₹120 / 500g</p>
+<button class="btn" onclick="order('Premium Tea')">Order Now</button>
+</div>
+
+<div class="card">
+<img src="https://i.ibb.co/4wgVjgnf/IMG-2175.jpg">
+<h3>Masala Tea</h3>
+<p>₹150 / 500g</p>
+<button class="btn" onclick="order('Masala Tea')">Order Now</button>
+</div>
+
+</div>
+
+<h2 style="text-align:center;">Contact / Order Form</h2>
+
+<div style="text-align:center;">
+<input type="text" id="name" placeholder="Your Name"><br>
+<input type="text" id="phone" placeholder="Phone Number"><br>
+<textarea id="address" placeholder="Address"></textarea><br>
+<button class="btn" onclick="sendOrder()">Submit Order</button>
+</div>
+
+<footer>
+📞 +91 97147 99911 <br>
+📍 Surat, Gujarat <br>
+© UNITY TEA
+</footer>
+
+<script>
+function scrollToProducts() {
+    document.getElementById("products").scrollIntoView();
+}
+
+function order(product) {
+    let msg = "Hello, I want to order " + product;
+    window.open("https://wa.me/919714799911?text=" + encodeURIComponent(msg));
+}
+
+function sendOrder() {
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let address = document.getElementById("address").value;
+
+    let msg = "New Order:%0AName: " + name + "%0APhone: " + phone + "%0AAddress: " + address;
+
+    window.open("https://wa.me/919714799911?text=" + msg);
+}
+</script>
+
+</body>
+</html>
